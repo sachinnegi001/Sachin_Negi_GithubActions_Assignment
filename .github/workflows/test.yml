@@ -7,10 +7,10 @@ on:
   workflow_call:
     inputs:
       username: 
-        username : "sachin"
+        name : 'sachin'
         description: 'A username passed from the caller workflow'
         default: 'john-doe'
-        required: false
+        required: True
         type: string
   # Triggers the workflow on push or pull request events but only for the "main" branch
   push:
@@ -68,6 +68,6 @@ jobs:
         with:
           python-version: '3.10' 
       - name: Run my 3rd python file
-        run: echo The username is ${{ inputs.username }}
+        run: echo The username is ${{ inputs.username.name }}
 
 
