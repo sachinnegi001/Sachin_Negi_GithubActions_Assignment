@@ -27,7 +27,10 @@ jobs:
       - uses: actions/setup-python@v4
         with:
           python-version: '3.10' 
-      - run: python python\test.py
+      - name: Run my first python file
+        run: | 
+        cd python
+        python test.py
 
   job2:
     # The type of runner that the job will run on
@@ -40,7 +43,10 @@ jobs:
       - uses: actions/setup-python@v4
         with:
           python-version: '3.10' 
-      - run: python python\test2.py
+      - name: Run my 2nd python file
+        run: | 
+        cd python
+        python test2.py
 
 
 
