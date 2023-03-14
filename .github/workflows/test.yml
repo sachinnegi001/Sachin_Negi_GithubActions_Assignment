@@ -61,6 +61,6 @@ jobs:
       - name: Run my 3rd python file
         run: | 
           cd python
-          python input.py "sachin"
+          python input.py 23 45
 
 
