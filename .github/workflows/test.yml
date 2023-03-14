@@ -4,6 +4,13 @@ name: sachin
 
 # Controls when the workflow will run
 on:
+  workflow_call:
+    inputs:
+      username: 
+        description: 'sachin negi'
+        default: 'john-doe'
+        required: True
+        type: string
   # Triggers the workflow on push or pull request events but only for the "main" branch
   push:
     branches: [ "main" ]
@@ -12,12 +19,7 @@ on:
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
-    inputs:
-      username: 
-        description: 'sachin Negi'
-        default: 'john-doe'
-        required: False
-        type: string
+
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
