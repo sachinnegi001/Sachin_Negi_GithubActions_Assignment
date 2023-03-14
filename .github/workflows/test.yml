@@ -6,7 +6,7 @@ name: sachin
 on:
   workflow_call:
     inputs:
-      username:
+      username: 'sachin'
         description: 'A username passed from the caller workflow'
         default: 'john-doe'
         required: false
