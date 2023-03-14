@@ -1,2 +1,4 @@
-a  = input("enter your name:")
+import sys
+
+a  = input(sys.argv[1])
 print(a)
