@@ -1,33 +1,36 @@
 
+name: input workflow
 
-name: inputWorkflow
-
-# Controls when the workflow will run
 on:
-  # Triggers the workflow on push or pull request events but only for the "main" branch
-  push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
-
-  # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
+      inputs:
+        inp1:
+          description: 'Please Enter First String'
+          required: false
+          default: "___"
+        inp2:
+          description: 'Please Enter Second  String'
+          default: "___"
+          required: false
 
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+env:
+  a: ${{github.event.inputs.inp1}}
+  b: ${{github.event.inputs.inp2}}
+
 jobs:
-  # This workflow contains a single job called "build"
   job1:
-    # The type of runner that the job will run on
     runs-on: ubuntu-latest
 
-    # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
       - uses: actions/setup-python@v4
         with:
           python-version: '3.10' 
-      - name: Run my 3rd python file
-        run: | 
+      - run: |
           cd python
-          python input.py 23 45
+          python input.py $a $b
+
+      - name: success message
+        # run: echo program executed successfully on ubuntu-latest!!
+        run: echo ${{github.event.inputs.inp1}}
+             ${{github.event.inputs.inp2}}
